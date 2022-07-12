@@ -1,0 +1,31 @@
+<p style="color: green"><%= notice %></p>
+
+<h2 class="text-center">Pets</h2>
+<%= link_to "New pet", new_pet_path %>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Race</th>
+      <th scope="col">Birthday</th>
+      <th scope="col">Client</th>
+      <th scope="col">Visits</th>
+
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pets.each do |pet| %>
+    <tr>
+      <td><%= pet.name %></td>
+      <td><%= pet.race %></td>
+      <td><%= pet.birthday %></td>
+      <td><%= pet.Client.name %></td>
+      <td><%= pet.pet_histories.count() %></td>
+      <td><%= link_to "Show", pet %> </td>
+      <td><%= link_to "Edit", edit_pet_path(pet.id) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
